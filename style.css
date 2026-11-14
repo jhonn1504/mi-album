@@ -1,0 +1,306 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #241522,
+        #48263e,
+        #211722
+    );
+    font-family: Georgia, serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+        circle,
+        #8b4966 0%,
+        transparent 65%
+    );
+    opacity: .2;
+    pointer-events: none;
+}
+
+header {
+    padding: 35px 15px 20px;
+    position: relative;
+}
+
+.subtitle {
+    letter-spacing: 5px;
+    color: #d9a6b9;
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 65px);
+    font-weight: normal;
+}
+
+h1 span {
+    color: #e4a4bc;
+    font-style: italic;
+}
+
+.description {
+    color: #d7bdca;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.album {
+    display: flex;
+    justify-content: center;
+    padding: 25px 10px;
+    perspective: 1800px;
+}
+
+.book {
+    width: min(680px, 92vw);
+    height: 400px;
+    position: relative;
+    display: flex;
+    box-shadow: 0 25px 50px #0008;
+    transform-style: preserve-3d;
+}
+
+.left-page,
+.right-page {
+    width: 50%;
+    height: 100%;
+    background: #fffaf4;
+    color: #49313e;
+    padding: 35px 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-page img {
+    width: 90%;
+    height: 260px;
+    object-fit: cover;
+    padding: 7px;
+    background: white;
+    box-shadow: 0 5px 15px #0002;
+    transform: rotate(-2deg);
+}
+
+.left-page p {
+    margin-top: 15px;
+    font-style: italic;
+    color: #94677c;
+}
+
+.right-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 35px;
+}
+
+.right-page span:first-child {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #a36d84;
+}
+
+.right-page h2 {
+    font-size: 34px;
+    margin-top: 20px;
+    color: #62384e;
+    font-weight: normal;
+}
+
+.heart {
+    text-align: center;
+    color: #bd829a;
+    margin: 18px 0;
+}
+
+.right-page p {
+    line-height: 1.7;
+    font-size: 16px;
+    color: #725c68;
+}
+
+.signature {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+}
+
+.cover {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform-origin: left;
+    transition: transform 1.2s ease;
+    z-index: 5;
+    cursor: pointer;
+    background: linear-gradient(
+        145deg,
+        #82435f,
+        #49243d,
+        #30192e
+    );
+    border: 3px solid #b77b91;
+    backface-visibility: hidden;
+}
+
+.cover.open {
+    transform: rotateY(-165deg);
+}
+
+.cover-content {
+    height: 100%;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d4a1b4;
+    margin: 8px;
+}
+
+.cover-content > p:first-child {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #edcbd7;
+}
+
+.cover-content img {
+    width: 65%;
+    height: 175px;
+    object-fit: cover;
+    margin: 20px 0;
+    border: 5px solid #f3dfe5;
+    box-shadow: 0 5px 15px #0006;
+}
+
+.cover h2 {
+    font-size: 35px;
+    font-weight: normal;
+}
+
+.cover h2 span {
+    color: #e7a6ba;
+    font-style: italic;
+}
+
+.cover-description {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.cover-heart {
+    margin: 15px;
+    color: #e7a6ba;
+}
+
+.cover-content small {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #e9c4d0;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+button {
+    background: #82435f;
+    color: white;
+    border: 1px solid #d29aaf;
+    border-radius: 30px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #a45b7a;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+#counter {
+    color: #e7bac9;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.music {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#musicStatus {
+    color: #cbb5c2;
+    font-size: 11px;
+}
+
+@media(max-width: 550px) {
+    .book {
+        height: 330px;
+    }
+
+    .left-page,
+    .right-page {
+        padding: 20px 12px;
+    }
+
+    .left-page img {
+        height: 210px;
+        width: 100%;
+    }
+
+    .right-page h2 {
+        font-size: 23px;
+    }
+
+    .right-page p {
+        font-size: 12px;
+    }
+
+    .cover-content img {
+        height: 120px;
+    }
+
+    .cover h2 {
+        font-size: 25px;
+    }
+
+    .controls {
+        gap: 8px;
+    }
+}
